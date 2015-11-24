@@ -20,7 +20,7 @@
     <target name="clean">
         <echo message="Cleaning the ${target} folder"/>
         <delete quiet="true" includeemptydirs="true">
-            <fileset dir="${target}" includes="**/*" />
+            <fileset dir="${target}" includes="**/*" excludes="*.md"/>
         </delete>
     </target>
     
@@ -41,6 +41,10 @@
                     <env key="JBOSS_HOME" value="${eap.home}"/>
                     <arg line="add-user.sh -u admin -p ${dv.admin.password}"/>
                 </exec>
+                 <exec dir="${eap.home}/bin" executable="sh">
+                    <env key="JBOSS_HOME" value="${eap.home}"/>
+                    <arg line="add-user.sh -a -u teiidUser -p ${dv.admin.password} -g odata"/>
+                </exec>
             </then>
             <elseif>
                 <equals arg1="${os.family}" arg2="windows" />
@@ -49,6 +53,11 @@
                         <env key="JBOSS_HOME" value="${eap.home}"/>
                         <env key="PATH" path="${env.PATH};C:\WINDOWS\system32"/>
                         <arg line="/c add-user.bat -u admin -p redhat123!"/>
+                    </exec>
+                    <exec dir="${eap.home}/bin" executable="cmd">
+                        <env key="JBOSS_HOME" value="${eap.home}"/>
+                        <env key="PATH" path="${env.PATH};C:\WINDOWS\system32"/>
+                        <arg line="/c add-user.bat -a -u teiidUser -p redhat123! -g odata"/>
                     </exec>
                 </then>
             </elseif>

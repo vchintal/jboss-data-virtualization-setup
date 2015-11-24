@@ -7,7 +7,7 @@ This repo is designed to help automate/speed up setup of **JBoss Data Virtualiza
 * [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html), preferably 1.8 
 * **JAVA_HOME** environment variable set
 * **JAVA_HOME\bin** is on the PATH
-* All of the necessary binaries downloaded. Refer to [binaries] (bimaries/README.md) for download locations and filename/versions.
+* All of the necessary binaries downloaded. Refer to [binaries] (binaries/README.md) for download locations and filename/versions.
 * EAP patches downloaded. Refer to the [patches] (patches/README.md) for download locations and filename/versions.
 * Familiarity with Apache Ant
 
