@@ -34,34 +34,6 @@
     <target name="install-eap" depends="clean">
         <echo message="Installing EAP ${eap.version}"/>
         <unzip src="${binaries}/jboss-eap-${eap.version}.zip" dest="${target}" />
-        <if>
-            <equals arg1="${os.family}" arg2="unix" />
-            <then>
-                <exec dir="${eap.home}/bin" executable="sh">
-                    <env key="JBOSS_HOME" value="${eap.home}"/>
-                    <arg line="add-user.sh -u admin -p ${dv.admin.password}"/>
-                </exec>
-                 <exec dir="${eap.home}/bin" executable="sh">
-                    <env key="JBOSS_HOME" value="${eap.home}"/>
-                    <arg line="add-user.sh -a -u teiidUser -p ${dv.admin.password} -g odata"/>
-                </exec>
-            </then>
-            <elseif>
-                <equals arg1="${os.family}" arg2="windows" />
-                <then>
-                    <exec dir="${eap.home}/bin" executable="cmd">
-                        <env key="JBOSS_HOME" value="${eap.home}"/>
-                        <env key="PATH" path="${env.PATH};C:\WINDOWS\system32"/>
-                        <arg line="/c add-user.bat -u admin -p redhat123!"/>
-                    </exec>
-                    <exec dir="${eap.home}/bin" executable="cmd">
-                        <env key="JBOSS_HOME" value="${eap.home}"/>
-                        <env key="PATH" path="${env.PATH};C:\WINDOWS\system32"/>
-                        <arg line="/c add-user.bat -a -u teiidUser -p redhat123! -g odata"/>
-                    </exec>
-                </then>
-            </elseif>
-        </if>
         <chmod perm="ugo+rx">
             <fileset dir="${eap.home}/bin">
                 <include name="**/*.sh"/>
@@ -141,9 +113,40 @@
             <arg value="${install-configs}/dv-${dv.version}-installation-config.xml"/>
             <sysproperty key="INSTALL_PATH" value="${eap.home}"/>
         </java>
-   </target>
+    </target>
 
-    <target name="install-jbds" depends="install-jdv">
+    <target name="setup-users" depends="install-jdv">
+         <if>
+            <equals arg1="${os.family}" arg2="unix" />
+            <then>
+                <exec dir="${eap.home}/bin" executable="sh">
+                    <env key="JBOSS_HOME" value="${eap.home}"/>
+                    <arg line="add-user.sh -u admin -p ${dv.admin.password}"/>
+                </exec>
+                 <exec dir="${eap.home}/bin" executable="sh">
+                    <env key="JBOSS_HOME" value="${eap.home}"/>
+                    <arg line="add-user.sh -a -u teiidUser -p ${dv.admin.password} -g odata"/>
+                </exec>
+            </then>
+            <elseif>
+                <equals arg1="${os.family}" arg2="windows" />
+                <then>
+                    <exec dir="${eap.home}/bin" executable="cmd">
+                        <env key="JBOSS_HOME" value="${eap.home}"/>
+                        <env key="PATH" path="${env.PATH};C:\WINDOWS\system32"/>
+                        <arg line="/c add-user.bat -u admin -p ${dv.admin.password}"/>
+                    </exec>
+                    <exec dir="${eap.home}/bin" executable="cmd">
+                        <env key="JBOSS_HOME" value="${eap.home}"/>
+                        <env key="PATH" path="${env.PATH};C:\WINDOWS\system32"/>
+                        <arg line="/c add-user.bat -a -u teiidUser -p ${dv.admin.password} -g odata"/>
+                    </exec>
+                </then>
+            </elseif>
+        </if>
+    </target>
+
+    <target name="install-jbds" depends="setup-users">
         <echo message="Installing JBoss Developer Studio ${jbds.version}"/>
         <java jar="${binaries}/jboss-devstudio-${jbds.version}.GA-installer-eap.jar"
               fork="true" >
