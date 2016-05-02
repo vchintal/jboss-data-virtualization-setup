@@ -1,0 +1,7 @@
+target/jbds/
+target/jboss-eap-6.4/
+binaries/apache-ant-*
+binaries/*.zip
+binaries/*.jar
+patches/*.zip
+
