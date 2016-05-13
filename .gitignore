@@ -3,5 +3,9 @@ target/jboss-eap-6.4/
 binaries/apache-ant-*
 binaries/*.zip
 binaries/*.jar
+jdbc-drivers/*.jar
 patches/*.zip
+!workspace/README.md
+workspace/*
+**/PREVIEW*
 
