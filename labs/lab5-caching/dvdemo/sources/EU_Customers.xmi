@@ -42,17 +42,17 @@
   <mmcore:AnnotationContainer xmi:uuid="mmuuid:f86b6adb-5ce2-42b6-82d6-fc6231ac1366">
     <annotations xmi:uuid="mmuuid:d13804eb-e66c-4b86-bae7-ba930a23a051" annotatedObject="mmuuid/83a1f32b-bf3d-4ad9-a7dc-d1c6df63ba7e">
       <tags xmi:uuid="mmuuid:63dd292a-d3b0-4d90-b020-99f371bfa430" key="modelExtensionDefinition:relational" value="relational"/>
-      <tags xmi:uuid="mmuuid:71b5c52f-e111-42ee-9af4-10ca4093b5df" key="connection:driver-class" value="org.postgresql.Driver"/>
-      <tags xmi:uuid="mmuuid:a844d51d-158f-47e2-8052-b0dfc67d42e3" key="connectionProfile:connectionProfileName" value="Lab PostgreSQL"/>
-      <tags xmi:uuid="mmuuid:a5b49549-1ee2-48f0-855b-5d049ef8aff3" key="connection:jarList" value="/home/vchintal/git/jboss-data-virtualization-setup/jdbc-drivers/postgresql-9.3-1103-jdbc41.jar"/>
-      <tags xmi:uuid="mmuuid:8e3f6ca2-5aa4-4160-aa85-e5cc42e4fa59" key="connectionProfile:connectionProfileProviderId" value="org.eclipse.datatools.enablement.postgresql.connectionProfile"/>
-      <tags xmi:uuid="mmuuid:6ec2ea5b-b58e-4aef-a02a-1b927f6774bc" key="translator:name" value="postgresql"/>
-      <tags xmi:uuid="mmuuid:c9b41f14-388a-4ac6-a4c8-bf520083c0af" key="connection:connection-url" value="jdbc:postgresql://209.132.178.25:5432/eucustomers"/>
-      <tags xmi:uuid="mmuuid:1322baee-1757-4590-8666-bad59dcb58c2" key="connectionProfile:connectionProfileInstanceID" value="41068580-18c1-11e6-b08e-94d7f012b756"/>
-      <tags xmi:uuid="mmuuid:429f8a37-164c-4ef0-8b2d-ddcd8421c10a" key="connection:connectionProfileInstanceID" value="org.eclipse.datatools.enablement.postgresql.connectionProfile"/>
-      <tags xmi:uuid="mmuuid:1b49492d-8c55-4830-84a0-e8cb83003ad1" key="connectionProfile:connectionProfileDescription" value=""/>
-      <tags xmi:uuid="mmuuid:05c899f6-568d-4950-8f03-fb1ebae1a75c" key="connection:user-name" value="dvuser"/>
-      <tags xmi:uuid="mmuuid:13a13248-6b38-4225-9cbe-e30828e7a388" key="connectionProfile:connectionProfileCategory" value="org.eclipse.datatools.connectivity.db.category"/>
+      <tags xmi:uuid="mmuuid:42e9bf3b-31ff-4c93-957a-7fe5dd51a21a" key="connection:driver-class" value="org.postgresql.Driver"/>
+      <tags xmi:uuid="mmuuid:20a92f84-0889-4f47-9036-f5c2b1a8d5a5" key="connectionProfile:connectionProfileName" value="Lab PostgreSQL"/>
+      <tags xmi:uuid="mmuuid:dda690d0-7d6d-459e-9be6-c827b5ca2ae4" key="connection:jarList" value="/home/vchintal/git/jboss-data-virtualization-setup/jdbc-drivers/postgresql-9.3-1103-jdbc41.jar"/>
+      <tags xmi:uuid="mmuuid:288e05f8-2a20-4d63-9f24-c63ff8edc1c7" key="connectionProfile:connectionProfileProviderId" value="org.eclipse.datatools.enablement.postgresql.connectionProfile"/>
+      <tags xmi:uuid="mmuuid:4e3466dd-cc4c-4178-a61d-5ac0c60e5e11" key="translator:name" value="postgresql"/>
+      <tags xmi:uuid="mmuuid:62d1fbd6-335d-44c7-972a-a83fc9a7840a" key="connection:connection-url" value="jdbc:postgresql://209.132.178.25:5432/eucustomers"/>
+      <tags xmi:uuid="mmuuid:4f8da410-c892-44e0-9ad8-218890bb18f1" key="connectionProfile:connectionProfileInstanceID" value="41068580-18c1-11e6-b08e-94d7f012b756"/>
+      <tags xmi:uuid="mmuuid:10d0f1e9-3960-4832-880e-7ab3d78586fa" key="connection:connectionProfileInstanceID" value="org.eclipse.datatools.enablement.postgresql.connectionProfile"/>
+      <tags xmi:uuid="mmuuid:644cff62-f629-4d9a-a5a0-1650cbe56c56" key="connectionProfile:connectionProfileDescription" value=""/>
+      <tags xmi:uuid="mmuuid:0784f838-ac27-4f07-be75-a85cce1b078e" key="connection:user-name" value="dvuser"/>
+      <tags xmi:uuid="mmuuid:8d201eaa-77fb-49a0-8101-182956e4cb2f" key="connectionProfile:connectionProfileCategory" value="org.eclipse.datatools.connectivity.db.category"/>
     </annotations>
     <annotations xmi:uuid="mmuuid:8e66c71e-99b3-40f4-b035-60d3ce9d8422" annotatedObject="mmuuid/63dd292a-d3b0-4d90-b020-99f371bfa430">
       <tags xmi:uuid="mmuuid:60f88f58-0c3d-4b8f-9285-f424322c2934" key="metamodel" value="http://www.metamatrix.com/metamodels/Relational"/>

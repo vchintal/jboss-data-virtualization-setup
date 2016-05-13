@@ -39,17 +39,17 @@
   <mmcore:AnnotationContainer xmi:uuid="mmuuid:4643b590-585f-4998-b04d-0b14b6af6fad">
     <annotations xmi:uuid="mmuuid:1014f23d-5e86-4e84-b120-c5c665f95009" annotatedObject="mmuuid/946924cb-dd28-4acf-8df3-909522559434">
       <tags xmi:uuid="mmuuid:bec3cff2-7d9e-440d-9129-ea34d34cf969" key="modelExtensionDefinition:relational" value="relational"/>
-      <tags xmi:uuid="mmuuid:e04e5c8c-7e75-49c5-bc14-b81c449eaab8" key="connection:driver-class" value="com.mysql.jdbc.Driver"/>
-      <tags xmi:uuid="mmuuid:61b664cb-f923-451f-b762-cccdab3d599d" key="connectionProfile:connectionProfileName" value="Lab MySQL"/>
-      <tags xmi:uuid="mmuuid:f63f82c1-e08b-4643-864a-fa24e2df1ff4" key="connection:jarList" value="/home/vchintal/git/jboss-data-virtualization-setup/jdbc-drivers/mysql-connector-java-5.1.29.jar"/>
-      <tags xmi:uuid="mmuuid:6616d677-5449-4e5b-98a6-5ea4b8883daa" key="connectionProfile:connectionProfileProviderId" value="org.eclipse.datatools.enablement.mysql.connectionProfile"/>
-      <tags xmi:uuid="mmuuid:812d7e42-6106-4909-8318-6c73d3178766" key="translator:name" value="mysql5"/>
-      <tags xmi:uuid="mmuuid:90b2c53f-cb54-4c1d-8b60-33e11ddbbe03" key="connection:connection-url" value="jdbc:mysql://209.132.178.25:3306/uscustomers"/>
-      <tags xmi:uuid="mmuuid:ebfbbc35-4e20-48c1-968b-202f0f648497" key="connectionProfile:connectionProfileInstanceID" value="1b5aa960-18c1-11e6-b08e-94d7f012b756"/>
-      <tags xmi:uuid="mmuuid:c2ae6e18-7fa1-4caa-9875-33d635d13f63" key="connection:connectionProfileInstanceID" value="org.eclipse.datatools.enablement.mysql.connectionProfile"/>
-      <tags xmi:uuid="mmuuid:2e2686e9-eba4-449f-99bd-075273f9f3c5" key="connectionProfile:connectionProfileDescription" value=""/>
-      <tags xmi:uuid="mmuuid:b3973fba-37cf-4bb8-9a54-bfb92609cfe1" key="connection:user-name" value="dvuser"/>
-      <tags xmi:uuid="mmuuid:c9df7809-1d9c-4aa3-8eb4-0dbb2890c33e" key="connectionProfile:connectionProfileCategory" value="org.eclipse.datatools.connectivity.db.category"/>
+      <tags xmi:uuid="mmuuid:aa2f214e-451d-475b-8860-2b10c5316606" key="connection:driver-class" value="com.mysql.jdbc.Driver"/>
+      <tags xmi:uuid="mmuuid:7d5b1566-dcc4-46a4-bb36-64dec55619d5" key="connectionProfile:connectionProfileName" value="Lab MySQL"/>
+      <tags xmi:uuid="mmuuid:768995a6-4071-4164-8527-a86ccaf0a54e" key="connection:jarList" value="/home/vchintal/git/jboss-data-virtualization-setup/jdbc-drivers/mysql-connector-java-5.1.29.jar"/>
+      <tags xmi:uuid="mmuuid:de057fcb-b804-4751-9869-20e7b82125aa" key="connectionProfile:connectionProfileProviderId" value="org.eclipse.datatools.enablement.mysql.connectionProfile"/>
+      <tags xmi:uuid="mmuuid:9f62a4cf-8c02-4246-87b8-204160f042f5" key="translator:name" value="mysql5"/>
+      <tags xmi:uuid="mmuuid:a93e2e14-7ae1-491f-b4d2-6d9b5f260b1b" key="connection:connection-url" value="jdbc:mysql://209.132.178.25:3306/uscustomers"/>
+      <tags xmi:uuid="mmuuid:06fc6860-f753-4b7d-a576-b4b572e1de40" key="connectionProfile:connectionProfileInstanceID" value="1b5aa960-18c1-11e6-b08e-94d7f012b756"/>
+      <tags xmi:uuid="mmuuid:1d454ff5-fab2-468f-95e6-4e182aeecca5" key="connection:connectionProfileInstanceID" value="org.eclipse.datatools.enablement.mysql.connectionProfile"/>
+      <tags xmi:uuid="mmuuid:745533dd-2af7-4e16-b1bd-07c66cb71179" key="connectionProfile:connectionProfileDescription" value=""/>
+      <tags xmi:uuid="mmuuid:e3eb7758-5f74-4ebd-89a4-eed24859deb2" key="connection:user-name" value="dvuser"/>
+      <tags xmi:uuid="mmuuid:0fe7c72b-dda1-4492-a975-069d2a9a7342" key="connectionProfile:connectionProfileCategory" value="org.eclipse.datatools.connectivity.db.category"/>
     </annotations>
     <annotations xmi:uuid="mmuuid:124b2216-0e27-4dc5-bec2-5b4d4b63d7cd" annotatedObject="mmuuid/bec3cff2-7d9e-440d-9129-ea34d34cf969">
       <tags xmi:uuid="mmuuid:0298e180-cefd-424f-87a7-07d16cb02ea8" key="metamodel" value="http://www.metamatrix.com/metamodels/Relational"/>

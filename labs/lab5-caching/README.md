@@ -27,25 +27,23 @@ Consult the [documentation](https://access.redhat.com/documentation/en-US/Red_Ha
 
 #### Testing Result Set Caching
 
-**Step 1:** Deploy a sample VDB for testing purposes. Virtual database `dvdemo.vdb` will be used in this example.
+**Step 1:** Execute **dvdemo**  VDB as shown in the image below: 
 
 [![](.images/rsc-deploy-vdb.png)](.images/rsc-deploy-vdb.png)
 
-**Step 2:** Configure the JDBC connection to the VDB from any SQL client. We will use **Database Development** perspective of JBoss Developer Studio for this purpose.  
+**Step 2:** Edit the connection to the **dvdemo** VDB :
 
-1. Right-click on the **Database Connections** and create a **new** connection profile [![](.images/rsc-create-new-connection-profile.png)](.images/rsc-create-new-connection-profile.png)
-2. Create a new **Teiid** connection profile as shown in the image below and click on **Next** [![](.images/rsc-teiid-connection-profile.png)](.images/rsc-teiid-connection-profile.png)
-3. Fill in the connection details to the VDB. Ensure to populate the URL property **resultSetCacheMode=true**. We will be using the **teiidUser** login for this purpose and click on **Finish** [![](.images/rsc-teiid-jdbc-details.png)](.images/rsc-teiid-jdbc-details.png)
-4. Explore the Teiid connection just established and open an new SQL scrapbook to run queries [![](.images/rsc-teiid-scrapbook.png)](.images/rsc-teiid-scrapbook.png)
+1. Right-click on the **dvdemo - localhost - Teiid Connection** add URL property **resultSetCacheMode=true**. We will be using the **teiidUser** login for this purpose and click on **Finish** [![](.images/rsc-teiid-jdbc-details.png)](.images/rsc-teiid-jdbc-details.png)
+2. Explore the Teiid connection just established and open an new SQL scrapbook to run queries [![](.images/rsc-teiid-scrapbook.png)](.images/rsc-teiid-scrapbook.png)
 
 **Step 3:** Run queries against the VDB without any customization (such as cache hints)
 
 1. Try a plain, simple/sample query without any customization and review the **status** to see how long it took to run the query  
 [![](.images/rsc-vdb-query-without-caching.png)](.images/rsc-vdb-query-without-caching.png)   
-Note in the image below, the status says that query took **1 sec and 23 ms** [![](.images/rsc-vdb-query-without-caching-status.png)](.images/rsc-vdb-query-without-caching-status.png) 
-2. Re-execute the same query and check on how long it took to run the same query with **default caching enabled**. Based on the image below we saved **14 ms**. The time saved widens as the result sets gets larger and larger. [![](.images/rsc-vdb-query-with-caching-status.png)](.images/rsc-vdb-query-with-caching-status.png)
+Note in the image below, the status says that query took **1 sec and 63 ms** [![](.images/rsc-vdb-query-without-caching-status.png)](.images/rsc-vdb-query-without-caching-status.png) 
+2. Re-execute the same query and check on how long it took to run the same query with **default caching enabled**. Based on the image below we saved appoximately **50 ms**. The time saved widens as the result sets gets larger and larger. [![](.images/rsc-vdb-query-with-caching-status.png)](.images/rsc-vdb-query-with-caching-status.png)
 
->> Log files **server.log** and **teiid-command.log** under **$JDV_HOME/standalone/log** folder will be of great help is validating if the what query is being executed and if the query is reaching all the way to the underlying datasources
+> Log files **server.log** and **teiid-command.log** under **$JDV_HOME/standalone/log** folder will be of great help is validating if the what query is being executed and if the query is reaching all the way to the underlying datasources
 
 **Step 4:** Run queries against the VDB with **cache hints**
 
@@ -69,7 +67,7 @@ Internal materialization is caching of all records of a specific view (virtual t
 **Key points about Internal Materialization**
 
 1. If the tranformation query behind the view has no cache hints, then ***the results are cached for the lifetime of the JVM***
-2. One can assign a cache hint to the transformation query behind the view to enable **cache expiry** after a defined **ttl (time to live)** as shown below. **Note :** If a new query arrives after the cache contents have expired, an **asynchronous job** refreshes the cache, till that job is complete the query **will not** be blocked and **stale** entries will be served [![](.images/internal-mat-cache-hint.png)](.images/internal-mat-cache-hint.png)
+2. One can assign a cache hint to the transformation query behind the view to enable **cache expiry** after a defined **ttl (time to live)** as shown below. **Note :** If a new query arrives after the cache contents have expired, it will trigger a full refresh of the cache while blocking the client. The alternative option is to set the vdb property **lazy-invalidate=true** such that the refresh happens ***asynchronously*** while serving **stale entries** [![](.images/internal-mat-cache-hint.png)](.images/internal-mat-cache-hint.png)
 3. One can **invalidate** the cache on demand using one of the two ways below. Invalidation **will** block the queries until the cache is refreshed.
   * Using the web based admin console of the DV runtime server. Focus on all the selected/highlighted entries in the image [![](.images/internal-mat-admin-console.png)](.images/internal-mat-admin-console.png)
   * Connecting to the deployed VDB via a SQL client and executing the command of the following form [![](.images/internal-mat-sysadmin-refresh.png)](.images/internal-mat-sysadmin-refresh.png)
@@ -164,8 +162,8 @@ Package a **dvdemo.vdb** as shown below and ensure that each source model is bou
 **Step 2 :** Deploy the VDB, connect to it view **Database Development** perspective and execute shown queries:
 
 ```sql
-DELETE FROM EXT_Customers.customers;
-INSERT INTO EXT_Customers.customers SELECT * FROM Customers.all_customers OPTION NOCACHE;
+DELETE FROM EXT_Customers.all_customers;
+INSERT INTO EXT_Customers.all_customers SELECT * FROM Customers.all_customers OPTION NOCACHE;
 SELECT * FROM Customers.all_customers
 ```
 
@@ -175,5 +173,4 @@ Note the run time of the query and check the server logs. Notice that the runtim
 
 [![](.images/mat-views-server-log.png)](.images/mat-views-server-log.png)
 
->Note: For this to accurately work one of the datasources, US_Customers or EU_Customers, had to be made an XA datasource. For some reason reading from the view and writing to EXT_Customers.customers is treated as a XA transaction at least between MySQL and Postgres
-
+>Note: For this to work, as shown in the image, append **AutoCommitTxn=OFF** at the end the URL Properties to prevent triggering a XA transaction between datasources when we are not using XA datasource configuration in the runtime.

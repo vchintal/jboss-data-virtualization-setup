@@ -4,6 +4,7 @@
     <modelImports xmi:uuid="mmuuid:26312475-87d7-46cb-8767-61a7781fd607" name="US_Customers" modelLocation="../sources/US_Customers.xmi" uuid="mmuuid:8e026c59-dee9-4475-a8d3-ca6b004371f7" modelType="PHYSICAL" primaryMetamodelUri="http://www.metamatrix.com/metamodels/Relational"/>
     <modelImports xmi:uuid="mmuuid:d4707b52-fbd7-478d-b9c7-87debe4abed8" name="EU_Customers" modelLocation="../sources/EU_Customers.xmi" uuid="mmuuid:643a5d86-eac8-46a5-a2da-17d4a1bffc83" modelType="PHYSICAL" primaryMetamodelUri="http://www.metamatrix.com/metamodels/Relational"/>
     <modelImports xmi:uuid="mmuuid:b6cf6f3f-2be8-4d70-b1f5-3b6b7da5884a" name="XMLSchema" modelLocation="http://www.w3.org/2001/XMLSchema" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
+    <modelImports xmi:uuid="mmuuid:4b136474-1c3e-4f81-a2d4-36663b078293" name="EXT_Customers" modelLocation="../sources/EXT_Customers.xmi" uuid="mmuuid:bcc73858-5504-4b06-92f1-05454bd057b5" modelType="PHYSICAL" primaryMetamodelUri="http://www.metamatrix.com/metamodels/Relational"/>
   </mmcore:ModelAnnotation>
   <diagram:DiagramContainer xmi:uuid="mmuuid:95cd20d9-d53b-458d-a969-f2e86460a776">
     <diagram xmi:uuid="mmuuid:f39e4c0c-3b13-44ed-b528-a15529810602" type="packageDiagramType" target="mmuuid/f7215dd4-4ef3-4db8-891d-6568609c8e8c">
@@ -485,6 +486,7 @@
     <columns xmi:uuid="mmuuid:e5d3fa10-5631-4189-a40c-40bbafdad8c4" name="Country" length="10">
       <type href="http://www.w3.org/2001/XMLSchema#string"/>
     </columns>
+    <materializedTable xsi:type="relational:BaseTable" href="../sources/EXT_Customers.xmi#mmuuid/dc07260b-3221-4ae1-9c39-17c669f9ce19"/>
     <primaryKey xmi:uuid="mmuuid:1e800e80-2c17-415a-af47-5bffe7e55bd6" name="pkCustomerID" columns="mmuuid/fe871f42-b4f7-4c04-ad74-b9ee003d0a08"/>
   </relational:BaseTable>
   <transformation:TransformationContainer xmi:uuid="mmuuid:aeb67139-8e75-42d0-a894-3e7398e68997">
