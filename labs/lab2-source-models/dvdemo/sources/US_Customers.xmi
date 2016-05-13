@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://www.metamatrix.com/metamodels/Diagram" xmlns:jdbc="http://www.metamatrix.com/metamodels/JDBC" xmlns:mmcore="http://www.metamatrix.com/metamodels/Core" xmlns:relational="http://www.metamatrix.com/metamodels/Relational">
-  <mmcore:ModelAnnotation xmi:uuid="mmuuid:cfe8a4d4-a9a6-461a-a1b9-d05b0e6cff28" primaryMetamodelUri="http://www.metamatrix.com/metamodels/Relational" modelType="PHYSICAL" ProducerName="Teiid Designer" ProducerVersion="9.0.3.Final-v20150810-1438-B1157">
+  <mmcore:ModelAnnotation xmi:uuid="mmuuid:cfe8a4d4-a9a6-461a-a1b9-d05b0e6cff28" primaryMetamodelUri="http://www.metamatrix.com/metamodels/Relational" modelType="PHYSICAL" ProducerName="Teiid Designer" ProducerVersion="9.0.6.Final-v20160316-1409-B1242">
     <modelImports xmi:uuid="mmuuid:f8407c75-74c9-4540-bf67-05b013f83255" name="XMLSchema" modelLocation="http://www.w3.org/2001/XMLSchema" modelType="TYPE" primaryMetamodelUri="http://www.eclipse.org/xsd/2002/XSD"/>
   </mmcore:ModelAnnotation>
   <relational:BaseTable xmi:uuid="mmuuid:553d066f-4553-4cf0-bbf4-3a9c94275856" name="customer" nameInSource="`customer`">
@@ -38,18 +38,18 @@
   </relational:BaseTable>
   <mmcore:AnnotationContainer xmi:uuid="mmuuid:c2a2183d-7af0-4919-9837-49ece42226fd">
     <annotations xmi:uuid="mmuuid:f510363a-137a-4448-8e68-4c970e3621bb" annotatedObject="mmuuid/cfe8a4d4-a9a6-461a-a1b9-d05b0e6cff28">
-      <tags xmi:uuid="mmuuid:1f0ed482-f72c-432b-a4a5-e943c1abc8f9" key="connection:driver-class" value="com.mysql.jdbc.Driver"/>
-      <tags xmi:uuid="mmuuid:6c769320-6e17-4732-9aa9-af4d12981fc8" key="connectionProfile:connectionProfileName" value="Lab MySQL"/>
-      <tags xmi:uuid="mmuuid:90979973-66ed-4adf-bcdb-ad917a16f80f" key="connection:jarList" value="/Users/vchintal/git/jboss-data-virtualization-integration-labs/jdbc-drivers/mysql-connector-java-5.1.29-bin.jar"/>
-      <tags xmi:uuid="mmuuid:5ff1e0a8-9b2c-49ca-9d5a-c0147cbc3faa" key="connectionProfile:connectionProfileProviderId" value="org.eclipse.datatools.enablement.mysql.connectionProfile"/>
-      <tags xmi:uuid="mmuuid:a751e546-a496-4c5c-bf74-778acae3aadd" key="translator:name" value="mysql5"/>
-      <tags xmi:uuid="mmuuid:3ad4a08d-23da-4244-a824-6b3e6c0c17d4" key="connection:connection-url" value="jdbc:mysql://localhost:3307/uscustomers"/>
-      <tags xmi:uuid="mmuuid:63f13901-efee-4ddf-b256-ed4706d5e454" key="connectionProfile:connectionProfileInstanceID" value="4c6ba151-6807-11e5-b36c-df4143ae95e5"/>
-      <tags xmi:uuid="mmuuid:816ae3fb-5bd8-4ac1-990c-62a24278213f" key="connection:connectionProfileInstanceID" value="org.eclipse.datatools.enablement.mysql.connectionProfile"/>
-      <tags xmi:uuid="mmuuid:b3aeb6d4-b506-4ae8-9426-1eabe2003efd" key="connectionProfile:connectionProfileDescription" value=""/>
-      <tags xmi:uuid="mmuuid:dd8d32c1-6f86-41c4-bff7-8a3ff0e9e678" key="connection:user-name" value="dvuser"/>
-      <tags xmi:uuid="mmuuid:d5ffae47-b6d4-4ac5-be75-6c673fb99525" key="connectionProfile:connectionProfileCategory" value="org.eclipse.datatools.connectivity.db.category"/>
       <tags xmi:uuid="mmuuid:a910f1d7-06d0-44c5-bac2-1a9945c06224" key="modelExtensionDefinition:relational" value="relational"/>
+      <tags xmi:uuid="mmuuid:8635d250-7320-4382-8772-f30a75b6565f" key="connection:driver-class" value="com.mysql.jdbc.Driver"/>
+      <tags xmi:uuid="mmuuid:afb49056-7817-4354-8752-eb82f0c5aba1" key="connectionProfile:connectionProfileName" value="Lab MySQL"/>
+      <tags xmi:uuid="mmuuid:63e9057d-15d0-4895-91d4-befef71a17fc" key="connection:jarList" value="/home/vchintal/git/jboss-data-virtualization-setup/jdbc-drivers/mysql-connector-java-5.1.29.jar"/>
+      <tags xmi:uuid="mmuuid:8aa66728-a4c8-4427-b038-810ccc5b3ac3" key="connectionProfile:connectionProfileProviderId" value="org.eclipse.datatools.enablement.mysql.connectionProfile"/>
+      <tags xmi:uuid="mmuuid:35ccabbc-3a48-4f25-bbc5-ba3cf44cf3cd" key="translator:name" value="mysql5"/>
+      <tags xmi:uuid="mmuuid:b3b8c4a6-c872-440e-b6cf-d82f4fba126d" key="connection:connection-url" value="jdbc:mysql://209.132.178.25:3306/uscustomers"/>
+      <tags xmi:uuid="mmuuid:b1907210-07b1-4211-aa06-ed0be6d06ae3" key="connectionProfile:connectionProfileInstanceID" value="1b5aa960-18c1-11e6-b08e-94d7f012b756"/>
+      <tags xmi:uuid="mmuuid:0f8ffa00-aa70-4137-b9db-e7850509f0ba" key="connection:connectionProfileInstanceID" value="org.eclipse.datatools.enablement.mysql.connectionProfile"/>
+      <tags xmi:uuid="mmuuid:eb743b5e-1906-4746-bb11-b73e61f37341" key="connectionProfile:connectionProfileDescription" value=""/>
+      <tags xmi:uuid="mmuuid:9b36a9eb-a711-4545-840f-9a2d75beb3e7" key="connection:user-name" value="dvuser"/>
+      <tags xmi:uuid="mmuuid:f433a09f-4721-4260-bfcc-34f18ede7249" key="connectionProfile:connectionProfileCategory" value="org.eclipse.datatools.connectivity.db.category"/>
     </annotations>
     <annotations xmi:uuid="mmuuid:b4c01148-0acb-4289-b151-571567e4e5ed" annotatedObject="mmuuid/a910f1d7-06d0-44c5-bac2-1a9945c06224">
       <tags xmi:uuid="mmuuid:25c2df35-790f-4315-832e-9b698da5c681" key="metamodel" value="http://www.metamatrix.com/metamodels/Relational"/>
@@ -391,7 +391,7 @@
       <diagramEntity xmi:uuid="mmuuid:94e8f50b-17e0-4adf-a577-1b20bedf9f6d" modelObject="mmuuid/553d066f-4553-4cf0-bbf4-3a9c94275856" xPosition="10" yPosition="10"/>
     </diagram>
   </diagram:DiagramContainer>
-  <jdbc:JdbcSource xmi:uuid="mmuuid:2f06f6b8-0e56-49d0-937c-386da5f84139" name="Lab MySQL" driverName="MySQL JDBC Driver" driverClass="com.mysql.jdbc.Driver" username="dvuser" url="jdbc:mysql://localhost:3307/uscustomers">
+  <jdbc:JdbcSource xmi:uuid="mmuuid:2f06f6b8-0e56-49d0-937c-386da5f84139" name="Lab MySQL" driverName="MySQL JDBC Driver" driverClass="com.mysql.jdbc.Driver" username="dvuser" url="jdbc:mysql://209.132.178.25:3306/uscustomers">
     <importSettings xmi:uuid="mmuuid:a1d8fbf0-1946-4df1-86a6-854b1ad499ad" createCatalogsInModel="false" createSchemasInModel="false" includeIndexes="false" includeApproximateIndexes="false">
       <includedCatalogPaths>/uscustomers</includedCatalogPaths>
       <excludedObjectPaths>/uscustomers/TABLE/account</excludedObjectPaths>
