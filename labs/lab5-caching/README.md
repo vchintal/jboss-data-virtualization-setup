@@ -71,6 +71,7 @@ Internal materialization is caching of all records of a specific view (virtual t
 3. One can **invalidate** the cache on demand using one of the two ways below. Invalidation **will** block the queries until the cache is refreshed.
   * Using the web based admin console of the DV runtime server. Focus on all the selected/highlighted entries in the image [![](.images/internal-mat-admin-console.png)](.images/internal-mat-admin-console.png)
   * Connecting to the deployed VDB via a SQL client and executing the command of the following form [![](.images/internal-mat-sysadmin-refresh.png)](.images/internal-mat-sysadmin-refresh.png)
+
 ```sql
 EXEC SYSADMIN.refreshMatView(viewname=>'Customers.all_customers', invalidate=>true)
 ```
@@ -96,24 +97,31 @@ We will challenge ourselves here and externally materialize a view to **MongoDB*
 **Step 1 :** In the current project, right click on the **sources** folder and choose **Import**
 
 **Step 2 :** Choose **Teiid Connection >> Source Model** in the options provided as shown below and click **Next**
+
 [![](.images/mdb-teiid-source-import.png)](.images/mdb-teiid-source-import.png)
 
 **Step 3 :** Click on **New** in the window that is presented as shown below
+
 [![](.images/mdb-new-data-source.png)](.images/mdb-new-data-source.png)
 
 **Step 4 :** Populate the connection details as shown and click on **Apply** and then click on **Ok**
+
 [![](.images/mdb-connection-details.png)](.images/mdb-connection-details.png)
 
 After a successful connection the following window is displayed. Click **Next** on this screen and next to get to the screen shown in the subsequent image
+
 [![](.images/mdb-post-successful-connection.png)](.images/mdb-post-successful-connection.png)
 
 **Step 5 :** Provide the Source Model name as shown in the image below and click **Next**
+
 [![](.images/mdb-source-model.png)](.images/mdb-source-model.png)
 
 **Step 6 :** Click **Next** on the screen shown
+
 [![](.images/mdb-import-metadata.png)](.images/mdb-import-metadata.png)
 
 **Step 7 :** Choose one of the existing tables and click on **Finish** just to proceed further. Imported tables will not be used, so it does not matter which one is chosen.
+
 [![](.images/mdb-choose-source-tables.png)](.images/mdb-choose-source-tables.png)
 
 **Step 8 :** [OPTIONAL] In the newly created MongoDB source model delete the imported table by right-clicking on the table and choosing **Delete**. Save the source model when done.
@@ -123,12 +131,15 @@ After a successful connection the following window is displayed. Click **Next** 
 #### Create Materialized Views
 
 **Step 1 :** Right click on the view to externally materialize and choose **Create Materialized Views** as shown below:
+
 [![](.images/mat-views-create.png)](.images/mat-views-create.png)
 
 **Step 2 :** In the next dialog, choose the source model for the materialized view, as shown below, and click on **Finish**:
+
 [![](.images/mat-views-choose-model.png)](.images/mat-views-choose-model.png)
 
 **Step 3 :** Open the source model when the materialized view is created, one should find a schema as shown below. Double-click on it to get to view the materialized table created.
+
 [![](.images/mat-views-schema-created.png)](.images/mat-views-schema-created.png)
 
 **Step 4 :** One would usually keep the schema in place but we will move the table created under the schema to root of source model with **cut and paste** as shown below:
@@ -143,12 +154,14 @@ After a successful connection the following window is displayed. Click **Next** 
 
 **Step 6 :** Set the **Name in Source** property of tables to the table names respectively
 
-That is, **customers** would be set to **customers** 
+That is, **all_customers** would be set to **all_customers** 
+
 [![](.images/mat-views-name-in-source.png)](.images/mat-views-name-in-source.png)
 
 **Step 8 :** Final step, correct the **Materialized Table** property value of the **customers** as shown below:
 
 The property value would be set to:   
+
 **customers (Path=/dvdemo/sources/EXT_Customers.xmi)**
 
 [![](.images/mat-views-correct-mat-table.png)](.images/mat-views-correct-mat-table.png)
