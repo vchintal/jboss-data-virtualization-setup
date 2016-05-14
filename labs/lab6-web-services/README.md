@@ -89,3 +89,20 @@ Access the URL [http://127.0.0.1:8080/dvdemo/](http://127.0.0.1:8080/dvdemo/#!/C
 **Step 4:** Now test the **getNewProcedureResult** SOAP operation in the same manner but by providing a **CustomerID** as parameter to the request, as shown below.
 
 [![](.images/ws-soap-specific-customer.png)](.images/ws-soap-specific-customer.png)
+
+### ODATA Web Services
+
+The **ODATA** services are exposed for every deployed view table of a VDB out-of-the-box. To access the **ODATA** service for the **Customers.all_customers** view table, access the link [http://127.0.0.1:8080/odata/dvdemo.1/Customers.all_customers](http://127.0.0.1:8080/odata/dvdemo.1/Customers.all_customers). Note that **ODATA** war may be protected, in which case use the credentials of the **teiidUser** and ensure that the **teiidUser** has a role of **odata** in the **application-roles.properties** file under **$JDV_HOME/standalone/configuration** folder.
+
+[![](.images/ws-odata-all-customers.png)](.images/ws-odata-all-customers.png)
+
+#### Sample ODATA operation: Filtering
+
+Use the link below to filter the resultset to one record based on the **CustomerID** field. 
+
+[http://127.0.0.1:8080/odata/dvdemo.1/Customers.all_customers?$filter=CustomerID eq 'CST01009'](http://127.0.0.1:8080/odata/dvdemo.1/Customers.all_customers?$filter=CustomerID%20eq%20%27CST01009%27)
+
+[![](.images/ws-odata-specific-customer.png)](.images/ws-odata-specific-customer.png)
+
+> Very important note: The exposed view table must have a primary key defined for **ODATA** web service to work 
+
