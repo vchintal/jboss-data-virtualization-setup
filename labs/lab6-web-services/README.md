@@ -3,8 +3,8 @@
 |Quick Index|
 |:---------|
 |[RESTful Web Services](#restful-web-services)|
-|[Internal Materialization](#internal-materialization)|
-|[External Materialization](#external-materialization)|
+|[SOAP based Web Services](#soap-based-web-services)|
+|[ODATA Web Services](#odata-web-services)|
 
 ---
 
@@ -41,3 +41,51 @@ Access the URL [http://127.0.0.1:8080/dvdemo/](http://127.0.0.1:8080/dvdemo/#!/C
 [![](.images/ws-rest-test1.png)](.images/ws-rest-test1.png)
 
 [![](.images/ws-rest-test2.png)](.images/ws-rest-test2.png)
+
+### SOAP based Web Services
+
+#### Generate the SOAP war
+
+**Step 1:** Right-click on the **Customers** view model and select **Modeling → Create Web Service** as shown in the image below
+
+[![](.images/ws-generate-soap.png)](.images/ws-generate-soap.png)
+
+**Step 2:** Leave the defaults in place and click on **Finish** in the screen below
+
+[![](.images/ws-generate-soap-conf.png)](.images/ws-generate-soap-war.png)
+
+**Step 3:** Verify the various models generated in the views folder
+
+[![](.images/ws-soap-models.png)](.images/ws-soap-models.png)
+
+**Step 4:** Add the new view models to the VDB and save the VDB
+
+**Step 5:** Right click on the **dvdemo.vdb** and choose **Modeling → Generate SOAP War**
+
+[![](.images/ws-generate-soap-war.png)](.images/ws-generate-soap-war.png)
+
+**Step 6:** Fill in the details as shown in the image below and choose the **WAR File Save Location** of your choice. In this example, as with **REST** war file, the **SOAP** war file be placed in the **lab6-web-services** folder.
+
+[![](.images/ws-generate-soap-war-config.png)](.images/ws-generate-soap-war-config.png)
+
+**Step 7:** Before deploying the **SOAP** war file, deploy the **dvdemo.vdb** as done in the above step and then deploy the **SOAP** war file as shown by the image below.
+
+[![](.images/ws-deploy-soap-war.png)](.images/ws-deploy-soap-war.png)
+
+#### Test the SOAP services
+
+**Step 1:** Access the **WSDL** for the **SOAP** service as shown below at location [http://127.0.0.1:8080/dvdemo-soap/Customers_all_customers?WSDL](http://127.0.0.1:8080/dvdemo-soap/Customers_all_customers?WSDL)
+
+[![](.images/ws-soap-war-wsdl.png)](.images/ws-soap-war-wsdl.png)
+
+**Step 2:** Use a tool like **SoapUI** and create a new **SOAP Project** with the given **WSDL** file as shown below.
+
+[![](.images/ws-soapui-new-proj.png)](.images/ws-soapui-new-proj.png)
+
+**Step 3:** Once the web service operations are listed, first test the **getall_customers** by double-clicking on the **Request 1** and then clicking on the green **Run/Play** button. The image below shows the request and response.
+
+[![](.images/ws-soap-all-customers.png)](.images/ws-soap-all-customers.png)
+
+**Step 4:** Now test the **getNewProcedureResult** SOAP operation in the same manner but by providing a **CustomerID** as parameter to the request, as shown below.
+
+[![](.images/ws-soap-specific-customer.png)](.images/ws-soap-specific-customer.png)
