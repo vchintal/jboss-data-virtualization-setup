@@ -7,8 +7,12 @@
 </com.jboss.devstudio.core.installer.PathInputPanel>
 <com.jboss.devstudio.core.installer.JREPathPanel id="jre"/>
 <com.jboss.devstudio.core.installer.JBossAsSelectPanel id="as">
-<installgroup>jbosseap</installgroup>
+<installgroup>jbds</installgroup>
 </com.jboss.devstudio.core.installer.JBossAsSelectPanel>
+<com.jboss.devstudio.core.installer.InstallAdditionalFeaturesPanel id="features">
+<ius>com.jboss.devstudio.core.package,org.testng.eclipse.feature.group,com.jboss.devstudio.integration-stack.ds.feature.feature.group</ius>
+<locations>jbds,jbdsis</locations>
+</com.jboss.devstudio.core.installer.InstallAdditionalFeaturesPanel>
 <com.jboss.devstudio.core.installer.UpdatePacksPanel id="updatepacks"/>
 <com.jboss.devstudio.core.installer.DiskSpaceCheckPanel id="diskspacecheck"/>
 <com.izforge.izpack.panels.SummaryPanel id="summary"/>

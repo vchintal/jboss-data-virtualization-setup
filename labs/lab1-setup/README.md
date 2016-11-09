@@ -40,7 +40,7 @@ Open the file and find entries like the ones shown below **OR** add them to the 
 
 ### Follow the steps below to complete the configuration
 
-**Step 1 :** Launch the JBoss Developer Studio from the folder `deployments/jbdevstudio` or run one of the following command from the root folder of the workshop:
+Launch the JBoss Developer Studio from the folder `deployments/jbdevstudio` or run one of the following command from the root folder of the workshop:
   * On *Windows* : Run `deployments\jbdevstudio\jbdevstudio.bat`
   * On *Linux\Unix* : Run `deployments/jbdevstudio/jbdevstudio`
   * For *Mac OS X* : Run `open deployments/jbdevstudio/jbdevstudio.app` 
@@ -48,36 +48,11 @@ Open the file and find entries like the ones shown below **OR** add them to the 
 Provide the path to the location of workspace. For the workshop, choose the path to the *workspace* folder in workshop's root folder. 
 [![](.images/ds-first-start.png)](.images/ds-first-start.png)
 
-**Step 2 :** Click on the Workbench icon on top-right corner of the screen
+Click on the Workbench icon on top-right corner of the screen
 [![](.images/ds-first-spalsh.png)](.images/ds-first-spalsh.png)
 
-#### Software Update Alternative 1
-
-**Step 3.1 :** Click on the 2nd tab: **Software/Update** found at the bottom of the **JBoss Central** frame
+You are now greeted with the main **JBoss Central** screen and your basic Developer Studio setup is now complete
 [![](.images/ds-first-look-workspace.png)](.images/ds-first-look-workspace.png)
-
-**Step 3.2 :** Choose one or more updates, for example: **JBoss Data Virtualization Development** to be applied to current installation and click on **Install/Update**
-[![](.images/ds-update.png)](.images/ds-update.png)
-
-#### Software Update Alternative 2
-
-**Step 3.1 :** Click on **Install New Software** on the **Help** menu item 
-
-[![](.images/ds-jdv-install-software.png)](.images/ds-jdv-install-software.png)
-
-**Step 3.2 :** Click on the *Add* button and fill in the details as shown in the image. For the archive, browse the location of the file provided and placed in `binaries/jbdevstudio-integration-stack-updatesite-8.0.3.GA.zip` and click on **OK**.
-[![](.images/ds-jdv-local-archive.png)](.images/ds-jdv-local-archive.png)
-
-**Step 3.3 :** From the available software list pick **JBoss Data Virtualization Development** and click on **Next**
-[![](.images/ds-jdv-install-dv-from-local-update.png)](.images/ds-jdv-install-dv-from-local-update.png)
-
-**Step 4 :** The rest of the update process should mirror the images shown below and in the sequence shown. To move ahead at each step click OK/Next/Finish as provided. The update should end with a prompt to restart the JBDS.
-[![](.images/ds-jdv-update-install.png)](.images/ds-jdv-update-install.png)
-[![](.images/ds-jdv-update-license.png)](.images/ds-jdv-update-license.png)
-[![](.images/ds-jdv-update-progress.png)](.images/ds-jdv-update-progress.png)
-[![](.images/ds-jdv-update-confirmation.png)](.images/ds-jdv-update-confirmation.png)
-[![](.images/ds-jdv-update-restart.png)](.images/ds-jdv-update-restart.png)
-
 
 ## Configuring JBDS for JBoss Data Virtualization 
 

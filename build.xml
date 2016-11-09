@@ -1,4 +1,4 @@
-<project name="jboss-data-virtualization" default="apply-jbds-integration-stack-update" basedir=".">
+<project name="jboss-data-virtualization" default="install-jbds" basedir=".">
 
     <taskdef resource="net/sf/antcontrib/antlib.xml"/>
     <loadproperties srcFile="build.properties"/>
@@ -108,7 +108,7 @@
     
     <target name="install-jdv" depends="apply-eap-patch">
         <echo message="Installing JBoss Data Virtualization ${dv.version}"/>
-        <java jar="${binaries}/jboss-dv-installer-${dv.version}.redhat-3.jar"
+        <java jar="${binaries}/jboss-dv-${dv.version}-installer.jar"
               fork="true" >
             <arg value="${install-configs}/dv-${dv.version}-installation-config.xml"/>
             <sysproperty key="INSTALL_PATH" value="${eap.home}"/>
@@ -148,24 +148,10 @@
 
     <target name="install-jbds" depends="setup-users">
         <echo message="Installing JBoss Developer Studio ${jbds.version}"/>
-        <java jar="${binaries}/jboss-devstudio-${jbds.version}.GA-installer-eap.jar"
+        <java jar="${binaries}/devstudio-integration-stack-${jbds.version}.GA-standalone-installer.jar"
               fork="true" >
             <arg value="${install-configs}/jbds-${jbds.version}-installation-config.xml"/>
         </java>
     </target>
 
-    <target name="apply-jbds-integration-stack-update" depends="install-jbds">
-        <unzip src="${binaries}/jbdevstudio-integration-stack-updatesite-${jbds.integration.stack.version}.zip" dest="${target}/jbds/studio/plugins">
-            <patternset>
-                <include name="aggregate/plugins/*"/>
-            </patternset>
-            <mapper type="flatten"/>
-        </unzip>
-        <unzip src="${binaries}/jbdevstudio-integration-stack-updatesite-${jbds.integration.stack.version}.zip" dest="${target}/jbds/studio/features">
-            <patternset>
-                <include name="aggregate/features/*"/>
-            </patternset>
-            <mapper type="flatten"/>
-        </unzip>
-    </target>
 </project>

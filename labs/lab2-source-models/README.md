@@ -46,13 +46,13 @@ Choose only **customer** table for the database object whose metadata needs to b
 
 In the final window, fill in the fields as shown below before clicking on **Finish**
 
-[![](.images/lab2-mysql-table-import-options.png)](.images/)b2-mysql-table-import-options.png
+[![](.images/lab2-mysql-table-import-options.png)](.images/lab2-mysql-table-import-options.png)
 
 When all is done, your project should look like the image shown below
 
 [![](.images/lab2-mysql-final-view.png)](.images/lab2-mysql-final-view.png)
 
-Finally test the source table by right-clicking on the table and choosing **Modeling → Preview Data**. For this to work ensure that the **Teiid Instance** tab of your server instance has right username and password filled out with **teiidUser** and **admin123!** respectively.
+Finally test the source table by right-clicking on the table and choosing **Modeling → Preview Data**. For this to work ensure that the **Teiid Instance** tab of your server instance has right username and password filled out with **teiidUser** and **redhat1!** respectively.
 
 ### Create EU Customers Source Model
 
