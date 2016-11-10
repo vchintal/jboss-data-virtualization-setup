@@ -9,12 +9,11 @@
     </description>
    
     <!-- Set necessary properties --> 
-    <property name="patches" location="${patches.relative}"/>
     <property name="target" location="${target.relative}"/>
     <property name="install-configs" location="${install-configs.relative}"/>
     <property name="binaries" location="${binaries.relative}"/>
     <property name="workspace" location="${workspace.relative}"/>
-    <property name="eap.home" location="${eap.home.relative}"/>
+    <property name="dv.home" location="${dv.home.relative}"/>
     <osfamily property="os.family"/>
 
     <target name="clean">
@@ -22,131 +21,22 @@
         <delete quiet="true" includeemptydirs="true">
             <fileset dir="${target}" includes="**/*" excludes="*.md"/>
         </delete>
-    </target>
-    
-    <target name="clean-workspace">
         <echo message="Cleaning the ${workspace} folder"/>
         <delete quiet="true" includeemptydirs="true">
             <fileset dir="${workspace}" includes="**/*" excludes="*.md"/>
         </delete>
     </target>
     
-    <target name="install-eap" depends="clean">
-        <echo message="Installing EAP ${eap.version}"/>
-        <unzip src="${binaries}/jboss-eap-${eap.version}.zip" dest="${target}" />
-        <chmod perm="ugo+rx">
-            <fileset dir="${eap.home}/bin">
-                <include name="**/*.sh"/>
-                <include name="**/*.bat"/>
-            </fileset>
-        </chmod>
-   </target>
-    
-    <target name="apply-eap-patch" depends="install-eap" unless="skipPatching">
-        <echo message="Starting the JBoss EAP ${eap.version} server in standalone mode"/>
-        <if>
-            <equals arg1="${os.family}" arg2="unix" />
-            <then>
-                <exec dir="${eap.home}/bin" executable="sh" spawn="true">
-                    <arg line="standalone.sh"/>
-                </exec>
-            </then>
-            <elseif>
-                <equals arg1="${os.family}" arg2="windows" />
-                <then>
-                    <exec dir="${eap.home}/bin" executable="cmd" spawn="true">
-                        <env key="PATH" path="${env.PATH};C:\WINDOWS\system32"/>
-                        <arg line="/c standalone.bat"/>
-                    </exec>
-                </then>
-            </elseif>
-        </if>
-
-        <echo message="Sleeping for ${eap.start.sleep} seconds"/>
-        <sleep seconds="${eap.start.sleep}"/>
-        
-        <echo message="Patching JBoss EAP ${eap.version} server in standalone mode"/>
-        <if>
-            <equals arg1="${os.family}" arg2="unix" />
-            <then>
-                <exec dir="${eap.home}/bin" executable="sh">
-                    <env key="JBOSS_HOME" value="${eap.home}"/>
-                    <arg line="jboss-cli.sh -c --command=&quot;patch apply ${patches}/jboss-eap-${eap.patch.version}-patch.zip&quot;"/>
-                </exec>
-            </then>
-            <elseif>
-                <equals arg1="${os.family}" arg2="windows" />
-                <then>
-                    <exec dir="${eap.home}/bin" executable="cmd">
-                        <env key="JBOSS_HOME" value="${eap.home}"/>
-                        <env key="PATH" path="${env.PATH};C:\WINDOWS\system32"/>
-                        <arg line="/c jboss-cli.bat -c --command=&quot;patch apply --override-all ${patches}/jboss-eap-${eap.patch.version}-patch.zip&quot;"/>
-                    </exec>
-                </then>
-            </elseif>
-        </if>        
-
-        <echo message="Shutting down the EAP server"/>
-        <if>
-            <equals arg1="${os.family}" arg2="unix" />
-            <then>
-                <exec dir="${eap.home}/bin" executable="sh">
-                    <arg line="jboss-cli.sh -c --command=shutdown"/>
-                </exec>
-            </then>
-            <elseif>
-                <equals arg1="${os.family}" arg2="windows" />
-                <then>
-                    <exec dir="${eap.home}/bin" executable="cmd">
-                        <env key="PATH" path="${env.PATH};C:\WINDOWS\system32"/>
-                        <arg line="/c jboss-cli.bat -c --command=shutdown"/>
-                    </exec>
-                </then>
-            </elseif>
-        </if>
-    </target>
-    
-    <target name="install-jdv" depends="apply-eap-patch">
+    <target name="install-jdv" depends="clean">
         <echo message="Installing JBoss Data Virtualization ${dv.version}"/>
         <java jar="${binaries}/jboss-dv-${dv.version}-installer.jar"
               fork="true" >
             <arg value="${install-configs}/dv-${dv.version}-installation-config.xml"/>
-            <sysproperty key="INSTALL_PATH" value="${eap.home}"/>
+            <sysproperty key="INSTALL_PATH" value="${dv.home}"/>
         </java>
     </target>
 
-    <target name="setup-users" depends="install-jdv">
-         <if>
-            <equals arg1="${os.family}" arg2="unix" />
-            <then>
-                <exec dir="${eap.home}/bin" executable="sh">
-                    <env key="JBOSS_HOME" value="${eap.home}"/>
-                    <arg line="add-user.sh -u admin -p ${dv.admin.password}"/>
-                </exec>
-                 <exec dir="${eap.home}/bin" executable="sh">
-                    <env key="JBOSS_HOME" value="${eap.home}"/>
-                    <arg line="add-user.sh -a -u teiidUser -p ${dv.admin.password} -g odata"/>
-                </exec>
-            </then>
-            <elseif>
-                <equals arg1="${os.family}" arg2="windows" />
-                <then>
-                    <exec dir="${eap.home}/bin" executable="cmd">
-                        <env key="JBOSS_HOME" value="${eap.home}"/>
-                        <env key="PATH" path="${env.PATH};C:\WINDOWS\system32"/>
-                        <arg line="/c add-user.bat -u admin -p ${dv.admin.password}"/>
-                    </exec>
-                    <exec dir="${eap.home}/bin" executable="cmd">
-                        <env key="JBOSS_HOME" value="${eap.home}"/>
-                        <env key="PATH" path="${env.PATH};C:\WINDOWS\system32"/>
-                        <arg line="/c add-user.bat -a -u teiidUser -p ${dv.admin.password} -g odata"/>
-                    </exec>
-                </then>
-            </elseif>
-        </if>
-    </target>
-
-    <target name="install-jbds" depends="setup-users">
+    <target name="install-jbds" depends="install-jdv">
         <echo message="Installing JBoss Developer Studio ${jbds.version}"/>
         <java jar="${binaries}/devstudio-integration-stack-${jbds.version}.GA-standalone-installer.jar"
               fork="true" >

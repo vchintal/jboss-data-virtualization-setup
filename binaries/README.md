@@ -13,4 +13,3 @@ The following binaries should be downloaded and saved into this folder. The link
 2. [Apache Ant Contrib] (http://central.maven.org/maven2/ant-contrib/ant-contrib/1.0b3/ant-contrib-1.0b3.jar) placed into `apache-ant-1.9.7\lib` relative path
 3. [jboss-dv-6.3.0-installer.jar](https://developers.redhat.com/download-manager/content/origin/files/sha256/96/96b50d2335f89a49c770741803d40333c63c23270254d6cde530532a1bbd9802/jboss-dv-6.3.0-installer.jar)
 4. [devstudio-integration-stack-9.0.2.GA-standalone-installer.jar](https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=46821) 
-5. [jboss-eap-6.4.0.zip](https://developers.redhat.com/download-manager/file/jboss-eap-6.4.0.GA-installer.jar)
